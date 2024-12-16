@@ -28,7 +28,7 @@ const About = () => {
                 className="rounded-lg object-cover h-[28rem] z-10 relative"
               />
             </div>
-            <div className="relative aspect-auto w-[120%] ml-[60%]">
+            <div className="relative aspect-auto w-[120%] ml-[60%] mt-[10%]">
               <img
                 src={Guitar2}
                 alt="Student practicing guitar with laptop"
@@ -37,7 +37,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center space-y-8 pt-8">
+          <div className="flex flex-col justify-center space-y-8 pt-8 relative xl:right-44">
             <h2 className="text-base font-semibold tracking-[0.25em] text-muted-foreground">
               A B O U T U S
             </h2>
