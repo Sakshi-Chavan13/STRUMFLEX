@@ -25,7 +25,7 @@ export function Navbar() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 text-white ${
-        isScrolled ? "bg-black/80 backdrop-blur-sm" : "bg-black/60"
+        isScrolled ? "bg-black backdrop-blur-sm" : "bg-transparent"
       }`}
     >
       <div className="max-w-[90vw] mx-auto px-4">

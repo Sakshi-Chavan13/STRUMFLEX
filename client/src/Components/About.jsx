@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section className="w-full min-h-screen relative overflow-hidden">
       {/* Background pattern */}
-      <div className="absolute inset-0 bg-[#f8f8f8]">
+      {/* <div className="absolute inset-0 bg-[#f8f8f8]">
         <div
           className="absolute inset-0"
           style={{
@@ -16,11 +16,11 @@ const About = () => {
             backgroundRepeat: "no-repeat",
           }}
         />
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 py-16 relative">
         <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
-          <div className="relative">
+          <div className="relative hidden lg:block">
             <div className="relative aspect-auto w-full mb-[-20%] z-10 ml-[30%]">
               <img
                 src={Guitar1}
@@ -28,7 +28,7 @@ const About = () => {
                 className="rounded-lg object-cover h-[28rem] z-10 relative"
               />
             </div>
-            <div className="relative aspect-auto w-[120%] ml-[60%] mt-[10%]">
+            <div className="relative aspect-auto w-[120%] ml-[60%] md:ml-[45%] mt-[10%]">
               <img
                 src={Guitar2}
                 alt="Student practicing guitar with laptop"
@@ -37,7 +37,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center space-y-8 pt-8 relative xl:right-44">
+          <div className="flex flex-col justify-center space-y-8 pt-8 relative 2xl:right-48 xl:right-0">
             <h2 className="text-base font-semibold tracking-[0.25em] text-muted-foreground">
               A B O U T U S
             </h2>
@@ -58,11 +58,10 @@ const About = () => {
                 detailed notes to keep your practice on track.
               </p>
             </div>
-            <div className="flex items-center gap-2">
-              {/* <Play className="h-5 w-5" /> */}
+            {/* <div className="flex items-center gap-2">
               <IoPlayCircle className="h-10 w-10" size={50} />
               Learn More
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
