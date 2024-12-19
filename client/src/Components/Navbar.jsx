@@ -4,9 +4,9 @@ import Button from "./Button";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Courses", href: "/courses" },
-  { name: "Pricing", href: "/pricing" },
-  { name: "About", href: "/about" },
+  { name: "Courses", href: "#Courses" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "About", href: "#about" },
 ];
 
 export function Navbar() {
@@ -29,7 +29,7 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-[90vw] mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-2">
           <a href="/" className="text-2xl font-bold">
             Strumflex
           </a>

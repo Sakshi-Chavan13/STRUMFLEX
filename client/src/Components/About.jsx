@@ -5,7 +5,7 @@ import Guitar2 from "../assets/Guitar2.jpg";
 
 const About = () => {
   return (
-    <section className="w-full min-h-screen relative overflow-hidden">
+    <section id="about" className="w-full relative overflow-hidden">
       {/* Background pattern */}
       {/* <div className="absolute inset-0 bg-[#f8f8f8]">
         <div
@@ -32,7 +32,7 @@ const About = () => {
               <img
                 src={Guitar2}
                 alt="Student practicing guitar with laptop"
-                className="rounded-lg object-cover h-[13rem] z-20 relative"
+                className="rounded-lg object-cover h-[13rem] w-[25rem] z-20 relative"
               />
             </div>
           </div>
