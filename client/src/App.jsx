@@ -5,6 +5,7 @@ import Home from "./Components/Home";
 import About from "./Components/About";
 import Prize from "./Components/Prize";
 import Footer from "./Components/Footer";
+import GuitarLessonForm from "./Components/Form";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Home />
       <About />
       <Prize />
+      <GuitarLessonForm />
       <Footer />
     </>
   );
