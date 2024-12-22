@@ -56,7 +56,7 @@ export default function GuitarLessonForm() {
 
   if (isSuccess) {
     return (
-      <div className="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+      <div className="max-w-lg mx-auto my-10 h-[617px] p-6 bg-white rounded-lg shadow-md shadow-red-300">
         <div className="text-center space-y-4">
           <div className="flex justify-center">
             <svg
@@ -80,7 +80,7 @@ export default function GuitarLessonForm() {
             you shortly to schedule your session.
           </p>
           <button
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300"
+            className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition duration-300"
             onClick={() => {
               setIsSuccess(false);
               reset();
@@ -94,11 +94,11 @@ export default function GuitarLessonForm() {
   }
 
   return (
-    <div className="max-w-lg mx-auto mt-10 mb-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-lg mx-auto mt-10 mb-10 p-6 bg-white rounded-lg shadow-md shadow-red-300">
       <div className="text-center mb-8">
-        <div className="mx-auto bg-blue-100 w-16 h-16 flex items-center justify-center rounded-full mb-4">
+        <div className="mx-auto bg-red-100 w-16 h-16 flex items-center justify-center rounded-full mb-2">
           <svg
-            className="w-8 h-8 text-blue-500"
+            className="w-8 h-8 text-red-500"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -229,7 +229,7 @@ export default function GuitarLessonForm() {
             type="button"
             onClick={() => setValue("terms", !watch("terms"))}
             className={`${
-              watch("terms") ? "bg-blue-600" : "bg-gray-300"
+              watch("terms") ? "bg-red-600" : "bg-gray-300"
             } relative inline-flex items-center h-4 w-6 rounded-full focus:outline-none`}
           >
             <span
@@ -252,7 +252,7 @@ export default function GuitarLessonForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+          className={`w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 ${
             isSubmitting ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >

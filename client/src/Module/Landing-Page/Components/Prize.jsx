@@ -48,7 +48,7 @@ const Prize = () => {
   ];
 
   return (
-    <section className="w-full min-h-screen relative overflow-hidden">
+    <section className="w-full relative overflow-hidden">
       <div className="container px-4 py-12 mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold tracking-tight mb-4">
@@ -69,7 +69,7 @@ const Prize = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div
-                className={`relative group bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 ${
+                className={`relative group bg-white rounded-lg shadow-md hover:shadow-lg hover:shadow-red-300 transition-shadow p-6 ${
                   option.popular ? "border-2 border-red-500" : ""
                 }`}
               >
@@ -86,12 +86,12 @@ const Prize = () => {
                   <p className="text-gray-600 mb-4">{option.description}</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold mb-4">
+                  {/* <div className="text-3xl font-bold mb-4">
                     ₹{option.price.toLocaleString()}
                     <span className="text-sm font-normal text-gray-600">
                       /month
                     </span>
-                  </div>
+                  </div> */}
                   <ul className="space-y-2 text-sm mb-6">
                     {option.features.map((feature, index) => (
                       <li
@@ -99,7 +99,7 @@ const Prize = () => {
                         className="animate-fade-in"
                         style={{ animationDelay: `${index * 100}ms` }}
                       >
-                        • {feature}
+                        🎸 {feature}
                       </li>
                     ))}
                   </ul>

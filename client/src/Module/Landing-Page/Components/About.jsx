@@ -1,7 +1,7 @@
 import React from "react";
 import { IoPlayCircle } from "react-icons/io5";
-import Guitar1 from "../assets/Guitar.jpg";
-import Guitar2 from "../assets/Guitar2.jpg";
+import Guitar1 from "../../../assets/Guitar.jpg";
+import Guitar2 from "../../../assets/Guitar2.jpg";
 
 const About = () => {
   return (

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
-import Button from "./Button";
+import Button from "../../../Components/Button";
 
 const navItems = [
   { name: "Home", href: "/" },

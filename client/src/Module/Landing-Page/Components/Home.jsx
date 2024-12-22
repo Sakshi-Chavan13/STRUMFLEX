@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import Button from "./Button";
-import BackgroundImage from "../assets/BackgroundMain.jpg";
+import BackgroundImage from "../../../assets/BackgroundMain.jpg";
+import Button from "../../../Components/Button";
 
 const Home = () => {
   useEffect(() => {
