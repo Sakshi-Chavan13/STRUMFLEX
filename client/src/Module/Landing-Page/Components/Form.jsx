@@ -96,7 +96,7 @@ export default function GuitarLessonForm() {
   return (
     <div className="max-w-lg mx-auto mt-10 mb-10 p-6 bg-white rounded-lg shadow-md shadow-red-300">
       <div className="text-center mb-8">
-        <div className="mx-auto bg-red-100 w-16 h-16 flex items-center justify-center rounded-full mb-2">
+        {/* <div className="mx-auto bg-red-100 w-16 h-16 flex items-center justify-center rounded-full mb-2">
           <svg
             className="w-8 h-8 text-red-500"
             fill="none"
@@ -111,7 +111,7 @@ export default function GuitarLessonForm() {
               d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
             ></path>
           </svg>
-        </div>
+        </div> */}
         <h2 className="text-2xl font-bold">Try a Half Hour Demo</h2>
         <p className="text-gray-600 mt-2">
           Start your musical journey with a free lesson. Complete the form below
@@ -155,7 +155,7 @@ export default function GuitarLessonForm() {
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 max-md:grid-cols-1 gap-4">
           <div>
             <label
               htmlFor="contactNumber"
