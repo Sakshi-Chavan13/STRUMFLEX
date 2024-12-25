@@ -1,8 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import BackgroundImage from "../../../assets/BackgroundMain.jpg";
 import Button from "../../../Components/Button";
+import GlobalModal from "../../../Components/GlobalModal";
+import RegisterForm from "./RegisterForm";
 
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     // Add smooth scrolling behavior
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -42,16 +45,20 @@ const Home = () => {
             your success.
           </p>
           <div className="flex gap-4">
-            <Button size="lg">
+            <Button size="lg" onClick={() => setIsModalOpen(true)}>
               Register Now
               <i class="fa fa-chevron-right" aria-hidden="true"></i>
             </Button>
-            <Button size="lg" variant="outline" isTransaprent>
+            {/* <Button size="lg" variant="outline" isTransaprent>
               View Courses
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
+
+      <GlobalModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <RegisterForm />
+      </GlobalModal>
     </section>
   );
 };

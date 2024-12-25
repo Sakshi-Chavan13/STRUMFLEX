@@ -47,7 +47,7 @@ export function Navbar() {
             ))}
           </div>
           <div className="hidden md:block">
-            <Button className="bg-red-600 hover:bg-red-700">Get Started</Button>
+            {/* <Button className="bg-red-600 hover:bg-red-700">Get Started</Button> */}
           </div>
           <button
             className="md:hidden text-white"

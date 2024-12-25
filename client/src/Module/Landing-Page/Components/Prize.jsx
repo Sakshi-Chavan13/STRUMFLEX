@@ -3,6 +3,7 @@ import { LuMonitor } from "react-icons/lu";
 import { LuSchool } from "react-icons/lu";
 import { AiOutlineHome } from "react-icons/ai";
 import RegisterForm from "./RegisterForm";
+import GlobalModal from "../../../Components/GlobalModal";
 
 const Prize = () => {
   const classOptions = [
@@ -128,22 +129,17 @@ const Prize = () => {
           ))}
         </div>
 
-        {isDialogOpen.open && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-transparent rounded-lg p-6 relative">
-              <button
-                className="absolute top-7 right-9 text-red-500 hover:text-gray-700 text-2xl"
-                onClick={() => setIsDialogOpen({ open: false, index: null })}
-              >
-                &times;
-              </button>
-              <RegisterForm
-                isDialogOpen={isDialogOpen}
-                setIsDialogOpen={setIsDialogOpen}
-              />
-            </div>
-          </div>
-        )}
+        <GlobalModal
+          isOpen={isDialogOpen.open}
+          onClose={() =>
+            setIsDialogOpen({ open: false, index: null, data: null })
+          }
+        >
+          <RegisterForm
+            isDialogOpen={isDialogOpen}
+            setIsDialogOpen={setIsDialogOpen}
+          />
+        </GlobalModal>
       </div>
     </section>
   );

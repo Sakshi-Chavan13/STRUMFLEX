@@ -1,9 +1,9 @@
 import React from "react";
 
-const Button = ({ children, isTransaprent }) => {
+const Button = ({ children, isTransaprent, ...rest }) => {
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center" {...rest}>
         <button
           className={
             isTransaprent

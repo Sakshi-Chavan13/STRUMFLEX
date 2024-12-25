@@ -56,7 +56,7 @@ export default function GuitarLessonForm() {
 
   if (isSuccess) {
     return (
-      <div className="max-w-lg mx-auto my-10 h-[617px] p-6 bg-white rounded-lg shadow-md shadow-red-300">
+      <div className="max-w-lg mx-auto h-[617px] p-6 bg-white rounded-lg shadow-md shadow-red-300">
         <div className="text-center space-y-4">
           <div className="flex justify-center">
             <svg
@@ -94,7 +94,7 @@ export default function GuitarLessonForm() {
   }
 
   return (
-    <div className="max-w-lg mx-auto mt-10 mb-10 p-6 bg-white rounded-lg shadow-md shadow-red-300">
+    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md shadow-red-300">
       <div className="text-center mb-8">
         {/* <div className="mx-auto bg-red-100 w-16 h-16 flex items-center justify-center rounded-full mb-2">
           <svg
