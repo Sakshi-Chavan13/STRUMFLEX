@@ -2,53 +2,88 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineMessage } from "react-icons/ai";
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa6";
 
-const LearningPoints = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const reviews = [
+  {
+    id: 1,
+    text: "Great place to learn guitar from basics to advance. The instructors are patient and knowledgeable.",
+    date: "2 months ago",
+    ownerResponse:
+      "Thank you for your kind words! We're glad you're enjoying your lessons. 😊",
+  },
+  {
+    id: 2,
+    text: "Excellent guitar lessons! The instructors really know their stuff and make learning fun.",
+    date: "1 month ago",
+    ownerResponse:
+      "We're thrilled to hear you're enjoying the lessons. Keep up the great work! 🎸",
+  },
+  {
+    id: 3,
+    text: "I've learned so much in such a short time. Highly recommend for anyone wanting to learn guitar.",
+    date: "3 weeks ago",
+    ownerResponse:
+      "Thank you for the recommendation! We're proud of your progress. 🌟",
+  },
+  {
+    id: 4,
+    text: "The instructors are very patient and explain things clearly. Great for beginners!",
+    date: "2 weeks ago",
+    ownerResponse:
+      "We're glad you find our teaching style helpful. Keep strumming! 🎶",
+  },
+];
 
-  const view = window.innerWidth > 1024 ? 2 : window.innerWidth > 768 ? 3 : 6;
+const cards = [
+  "Basic Guitar Lessons",
+  "Songs Lessons",
+  "Staff Notations",
+  "Professional Techniques",
+];
+
+const LearningPoints = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(1);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === reviews.length / view - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000);
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setSlidesPerView(3);
+      } else if (window.innerWidth >= 640) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
 
-    return () => clearInterval(timer);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const totalSlides = Math.ceil(reviews.length / slidesPerView);
+
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === reviews.length / view - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? reviews.length / view - 1 : prevIndex - 1
-    );
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
 
-  const reviews = Array(6)
-    .fill(null)
-    .map((_, i) => ({
-      id: i,
-      rating: 5,
-      text: "Great place to learn guitar from basics to advance. The instructors are patient and knowledgeable.",
-      date: "2 months ago",
-      ownerResponse:
-        "Thank you for your kind words! We're glad you're enjoying your lessons. 😊",
-    }));
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 5000);
+    return () => clearInterval(timer);
+  }, [totalSlides]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-red-50 to-red-100 p-6 md:p-8 lg:p-12">
+    <div className="min-h-screen bg-gradient-to-b p-6 md:p-8 lg:p-12">
       {/* Learning Points Section */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-slate-800 tracking-tight text-center">
           Learning points
         </h2>
-        <div className="px-40 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {[...Array(5)].map((_, i) => (
+        <div className="md:px-40 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {cards.map((card, i) => (
             <div
               key={i}
               className="group bg-white rounded-lg border border-slate-200 hover:shadow-lg transition-all duration-300"
@@ -71,14 +106,12 @@ const LearningPoints = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-semibold text-slate-700">
-                    Guitar Basics
-                  </h3>
+                  <h3 className="font-semibold text-slate-700">{card}</h3>
                 </div>
                 <div className="h-1 w-full bg-red-100 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-red-600 rounded-full transition-all duration-500 ease-out group-hover:w-full"
-                    style={{ width: `${(i + 1) * 20}%` }}
+                    style={{ width: `${(i + 1) * 25}%` }}
                   />
                 </div>
               </div>
@@ -89,93 +122,137 @@ const LearningPoints = () => {
 
       {/* Reviews Section */}
       <section>
-        <div className="w-full max-w-7xl mx-auto px-4 py-12 bg-gradient-to-br">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
-            What Our Students Say
-          </h2>
+        <div className="max-w-7xl mx-auto px-4 py-12 bg-pink-50 relative">
           <div className="relative overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-              {reviews.map((review) => (
+              {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                 <div
-                  key={review.id}
-                  className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-4"
+                  key={slideIndex}
+                  className="flex gap-4 w-full flex-shrink-0"
                 >
-                  <div className="bg-white rounded-lg shadow-lg p-6 h-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <AiOutlineMessage className="w-8 h-8 text-red-500" />
-                          <h3 className="font-semibold text-lg text-gray-800">
-                            Student Review
-                          </h3>
+                  {reviews
+                    .slice(
+                      slideIndex * slidesPerView,
+                      (slideIndex + 1) * slidesPerView
+                    )
+                    .map((review) => (
+                      <div
+                        key={review.id}
+                        className={`w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 transform transition-all duration-500 hover:scale-105`}
+                      >
+                        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 transition-shadow duration-300 hover:shadow-xl h-full">
+                          <div className="flex justify-between items-start mb-4">
+                            <div className="flex items-center gap-2">
+                              <div className="w-5 h-5 text-gray-700">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                >
+                                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                                </svg>
+                              </div>
+                              <span className="font-semibold text-base sm:text-lg text-gray-800">
+                                Student Review
+                              </span>
+                            </div>
+                            <div className="flex gap-0.5">
+                              {[...Array(5)].map((_, i) => (
+                                <svg
+                                  key={i}
+                                  className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                              ))}
+                            </div>
+                          </div>
+                          <blockquote className="text-gray-600 italic mb-4 text-sm sm:text-base">
+                            "{review.text}"
+                          </blockquote>
+                          <div className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6">
+                            {review.date}
+                          </div>
+                          <div className="border-t border-gray-200 pt-4">
+                            <h4 className="text-red-500 font-medium mb-2 text-sm sm:text-base">
+                              Response from the owner
+                            </h4>
+                            <p className="text-gray-600 text-sm sm:text-base">
+                              {review.ownerResponse}
+                            </p>
+                          </div>
                         </div>
-                        <div className="flex">
-                          {Array(review.rating)
-                            .fill(null)
-                            .map((_, i) => (
-                              <svg
-                                key={i}
-                                className="w-5 h-5 text-yellow-400"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                              >
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                              </svg>
-                            ))}
-                        </div>
                       </div>
-                      <p className="text-gray-600 italic">
-                        &ldquo;{review.text}&rdquo;
-                      </p>
-                      <div className="text-sm text-gray-500">
-                        <span>{review.date}</span>
-                      </div>
-                      <div className="pt-4 border-t border-gray-200">
-                        <p className="font-medium mb-1 text-red-600">
-                          Response from the owner
-                        </p>
-                        <p className="text-gray-600">{review.ownerResponse}</p>
-                      </div>
-                    </div>
-                  </div>
+                    ))}
                 </div>
               ))}
             </div>
+          </div>
 
-            {/* Navigation arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md text-gray-800 hover:bg-gray-100 transition-colors duration-300"
-              aria-label="Previous review"
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-100 text-gray-800 font-bold py-2 px-3 sm:px-4 rounded-r transition-all duration-300"
+            aria-label="Previous slide"
+          >
+            <svg
+              className="w-4 h-4 sm:w-6 sm:h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <FaCaretLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md text-gray-800 hover:bg-gray-100 transition-colors duration-300"
-              aria-label="Next review"
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-100 text-gray-800 font-bold py-2 px-3 sm:px-4 rounded-l transition-all duration-300"
+            aria-label="Next slide"
+          >
+            <svg
+              className="w-4 h-4 sm:w-6 sm:h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <FaCaretRight className="w-6 h-6" />
-            </button>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
 
-            {/* Dots navigation */}
-            <div className="flex justify-center gap-2 mt-6">
-              {[...Array(view)].map((_, index) => (
-                <button
-                  key={index}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? "bg-red-600 w-6"
-                      : "bg-gray-300 hover:bg-gray-400"
-                  }`}
-                  onClick={() => setCurrentIndex(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
+          <div className="flex justify-center gap-2 mt-6 sm:mt-8">
+            {Array.from({ length: totalSlides }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentSlide
+                    ? "bg-red-500 scale-125"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+              >
+                <span className="sr-only">Go to slide {index + 1}</span>
+              </button>
+            ))}
           </div>
         </div>
       </section>
