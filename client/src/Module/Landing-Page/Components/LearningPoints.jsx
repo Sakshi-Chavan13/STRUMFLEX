@@ -86,7 +86,7 @@ const LearningPoints = () => {
           {cards.map((card, i) => (
             <div
               key={i}
-              className="group bg-white rounded-lg border border-slate-200 hover:shadow-lg transition-all duration-300"
+              className="group bg-white rounded-lg border border-slate-200 hover:shadow-lg hover:shadow-red-300 transition-all duration-300"
             >
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-3">
@@ -122,6 +122,9 @@ const LearningPoints = () => {
 
       {/* Reviews Section */}
       <section>
+        <h2 className="text-3xl font-bold mb-8 text-slate-800 tracking-tight text-center">
+          Reviews
+        </h2>
         <div className="max-w-7xl mx-auto px-4 py-12 bg-pink-50 relative">
           <div className="relative overflow-hidden">
             <div
@@ -134,16 +137,13 @@ const LearningPoints = () => {
                   className="flex gap-4 w-full flex-shrink-0"
                 >
                   {reviews
-                    .slice(
-                      slideIndex * slidesPerView,
-                      (slideIndex + 1) * slidesPerView
-                    )
+                    .slice(slideIndex, (slideIndex + 1) * slidesPerView)
                     .map((review) => (
                       <div
                         key={review.id}
                         className={`w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 transform transition-all duration-500 hover:scale-105`}
                       >
-                        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 transition-shadow duration-300 hover:shadow-xl h-full">
+                        <div className="bg-white z-10 rounded-lg shadow-lg p-4 sm:p-6 transition-shadow duration-300 hover:shadow-xl h-full">
                           <div className="flex justify-between items-start mb-4">
                             <div className="flex items-center gap-2">
                               <div className="w-5 h-5 text-gray-700">

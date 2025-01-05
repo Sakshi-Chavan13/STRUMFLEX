@@ -29,7 +29,7 @@ const LandingIndex = () => {
       <FormMain />
       <Footer />
       <GlobalModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <GuitarLessonForm />
+        <GuitarLessonForm isModal />
       </GlobalModal>
     </>
   );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDemoForm } from "../service";
 
 const schema = yup
   .object({
@@ -24,7 +25,7 @@ const schema = yup
   })
   .required();
 
-export default function GuitarLessonForm() {
+export default function GuitarLessonForm({ isModal }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -43,20 +44,26 @@ export default function GuitarLessonForm() {
     },
   });
 
-  console.log(watch());
+  //
 
-  const onSubmit = async (data) => {
-    setIsSubmitting(true);
+  const { mutate } = useDemoForm();
+
+  const onSubmit = (data) => {
+    // setIsSubmitting(true);
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
-    setIsSubmitting(false);
-    setIsSuccess(true);
+
+    mutate(data);
+    // setIsSubmitting(false);
+    // setIsSuccess(true);
   };
 
   if (isSuccess) {
     return (
-      <div className="max-w-lg mx-auto h-[617px] p-6 bg-white rounded-lg shadow-md shadow-red-300">
+      <div
+        className={`${
+          isModal && "max-w-lg h-[617px]"
+        } mx-auto p-6 bg-white rounded-lg shadow-md shadow-red-300`}
+      >
         <div className="text-center space-y-4">
           <div className="flex justify-center">
             <svg
@@ -94,7 +101,11 @@ export default function GuitarLessonForm() {
   }
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md shadow-red-300">
+    <div
+      className={`${
+          isModal && "max-w-lg h-[617px]"
+        } mx-auto p-6 bg-white rounded-lg shadow-md shadow-red-300`}
+    >
       <div className="text-center mb-8">
         {/* <div className="mx-auto bg-red-100 w-16 h-16 flex items-center justify-center rounded-full mb-2">
           <svg

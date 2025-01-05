@@ -18,7 +18,7 @@ const RegisterForm = () => {
 
   const onSubmit = (data) => {
     executeRecaptcha();
-    console.log(data);
+    
     setIsSubmitting(true);
   };
 
