@@ -19,7 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('users', UserController::class);
+Route::middleware(['cors'])->group(function () {
+    Route::apiResource('users', UserController::class);
+});
+
+
 
 
 
