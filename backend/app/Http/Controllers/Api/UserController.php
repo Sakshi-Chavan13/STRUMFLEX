@@ -41,8 +41,7 @@ class UserController extends Controller
         ]);
 
         $user = User::create($validatedData);
-        $user->load('country');
-
+       
         return new UserResource($user);
     }
 

@@ -9,7 +9,7 @@ class User extends Model
 {
     use HasFactory;
 
-    protected $fillbale = [
+    protected $fillable = [
         'name',
         'email',
         "lesson_for",
