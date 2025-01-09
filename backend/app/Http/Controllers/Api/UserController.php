@@ -42,6 +42,8 @@ class UserController extends Controller
 
         $user = User::create($validatedData);
        
+
+        
         return new UserResource($user);
     }
 
