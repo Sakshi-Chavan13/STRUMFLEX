@@ -37,7 +37,9 @@ class UserController extends Controller
             "days" => ["nullable", "string"],
             "learning_method" => ["nullable", "string"],
             "hidden_field" => ["nullable", "string"],
+ ///demo code 
             "token" => ["nullable", "string"]
+
         ]);
 
         $user = User::create($validatedData);
