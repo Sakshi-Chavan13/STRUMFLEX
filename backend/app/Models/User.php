@@ -21,6 +21,7 @@ class User extends Model
         "guitar_available",
         "guitar_played_before",
         "days",
+        "shift",
         "learning_method",
         "hidden_field",
         "token"

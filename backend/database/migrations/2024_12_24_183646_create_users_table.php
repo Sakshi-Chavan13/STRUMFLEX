@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('guitar_played_before')->nullable();
             $table->string('session_availability')->nullable();
             $table->string('days')->nullable();
+            $table->string('shift')->nullable();
             $table->string('learning_method')->nullable();
             $table->string('hidden_field')->nullable();
             $table->string('token')->nullable();

@@ -24,6 +24,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validatedData = $request->validate([
             "name" => ["nullable", "string"],
             "lesson_for" => ["nullable", "string", "in:myself,child,other"],
@@ -37,7 +38,7 @@ class UserController extends Controller
             "days" => ["nullable", "string"],
             "learning_method" => ["nullable", "string"],
             "hidden_field" => ["nullable", "string"],
- ///demo code 
+            "shift"=> ["nullable","string"],
             "token" => ["nullable", "string"]
 
         ]);
