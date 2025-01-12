@@ -4,6 +4,7 @@ import { LuSchool } from "react-icons/lu";
 import { AiOutlineHome } from "react-icons/ai";
 import RegisterForm from "./RegisterForm";
 import GlobalModal from "../../../Components/GlobalModal";
+import Drawer from "../../../Components/Drawer";
 
 const Prize = () => {
   const classOptions = [
@@ -140,6 +141,18 @@ const Prize = () => {
             setIsDialogOpen={setIsDialogOpen}
           />
         </GlobalModal>
+
+        <Drawer
+          isOpen={isDialogOpen.open}
+          onClose={() =>
+            setIsDialogOpen({ open: false, index: null, data: null })
+          }
+        >
+          <RegisterForm
+            isDialogOpen={isDialogOpen}
+            setIsDialogOpen={setIsDialogOpen}
+          />
+        </Drawer>
       </div>
     </section>
   );

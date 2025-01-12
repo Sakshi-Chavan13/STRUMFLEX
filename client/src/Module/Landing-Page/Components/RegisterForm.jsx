@@ -69,15 +69,15 @@ const RegisterForm = () => {
 
               <div>
                 <label
-                  htmlFor="contactNumber"
+                  htmlFor="mobile"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Contact Number (WhatsApp)
                 </label>
                 <input
                   type="tel"
-                  id="contactNumber"
-                  {...register("contactNumber", {
+                  id="mobile"
+                  {...register("mobile", {
                     required: "Contact number is required",
                     pattern: {
                       value: /^[0-9]{10}$/,
@@ -85,12 +85,12 @@ const RegisterForm = () => {
                     },
                   })}
                   className={`w-full px-3 py-2 border rounded-md ${
-                    errors.contactNumber ? "border-red-500" : "border-gray-300"
+                    errors.mobile ? "border-red-500" : "border-gray-300"
                   }`}
                 />
-                {errors.contactNumber && (
+                {errors.mobile && (
                   <p className="mt-1 text-sm text-red-600">
-                    {errors.contactNumber.message}
+                    {errors.mobile.message}
                   </p>
                 )}
               </div>
@@ -133,7 +133,7 @@ const RegisterForm = () => {
                       <input
                         type="radio"
                         value={option}
-                        {...register("hasGuitar", {
+                        {...register("guitar_available", {
                           required: "Please select an option",
                         })}
                         className="form-radio h-4 w-4 text-red-600 border-gray-300 focus:ring-red-500"
@@ -144,9 +144,9 @@ const RegisterForm = () => {
                     </label>
                   ))}
                 </div>
-                {errors.hasGuitar && (
+                {errors.guitar_available && (
                   <p className="mt-1 text-sm text-red-600">
-                    {errors.hasGuitar.message}
+                    {errors.guitar_available.message}
                   </p>
                 )}
               </div>
@@ -162,7 +162,7 @@ const RegisterForm = () => {
                       <input
                         type="radio"
                         value={option}
-                        {...register("playedBefore", {
+                        {...register("guitar_played_before", {
                           required: "Please select an option",
                         })}
                         className="form-radio h-4 w-4 text-red-600 border-gray-300 focus:ring-red-500"
@@ -173,9 +173,9 @@ const RegisterForm = () => {
                     </label>
                   ))}
                 </div>
-                {errors.playedBefore && (
+                {errors.guitar_played_before && (
                   <p className="mt-1 text-sm text-red-600">
-                    {errors.playedBefore.message}
+                    {errors.guitar_played_before.message}
                   </p>
                 )}
               </div>
@@ -191,7 +191,7 @@ const RegisterForm = () => {
                       <input
                         type="radio"
                         value={time}
-                        {...register("availability", {
+                        {...register("shift", {
                           required: "Please select an option",
                         })}
                         className="form-radio h-4 w-4 text-red-600 border-gray-300 focus:ring-red-500"
@@ -202,9 +202,9 @@ const RegisterForm = () => {
                     </label>
                   ))}
                 </div>
-                {errors.availability && (
+                {errors.shift && (
                   <p className="mt-1 text-sm text-red-600">
-                    {errors.availability.message}
+                    {errors.shift.message}
                   </p>
                 )}
               </div>
@@ -286,7 +286,7 @@ const RegisterForm = () => {
                     <input
                       type="radio"
                       value={value}
-                      {...register("learningMethod", {
+                      {...register("learning_method", {
                         required: "Please select an option",
                       })}
                       className="form-radio h-4 w-4 text-red-600 border-gray-300 focus:ring-red-500"
@@ -295,9 +295,9 @@ const RegisterForm = () => {
                   </label>
                 ))}
               </div>
-              {errors.learningMethod && (
+              {errors.learning_method && (
                 <p className="mt-1 text-sm text-red-600">
-                  {errors.learningMethod.message}
+                  {errors.learning_method.message}
                 </p>
               )}
             </div>

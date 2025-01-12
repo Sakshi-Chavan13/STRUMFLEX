@@ -78,7 +78,7 @@ const LearningPoints = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b p-6 md:p-8 lg:p-12">
       {/* Learning Points Section */}
-      <section className="mb-16">
+      <section id="Learning" className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-slate-800 tracking-tight text-center">
           Learning points
         </h2>
@@ -125,8 +125,8 @@ const LearningPoints = () => {
         <h2 className="text-3xl font-bold mb-8 text-slate-800 tracking-tight text-center">
           Reviews
         </h2>
-        <div className="max-w-7xl mx-auto px-4 py-12 bg-pink-50 relative">
-          <div className="relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 py-12 relative">
+          <div className="relative">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -134,7 +134,9 @@ const LearningPoints = () => {
               {Array.from({ length: totalSlides }).map((_, slideIndex) => (
                 <div
                   key={slideIndex}
-                  className="flex gap-4 w-full flex-shrink-0"
+                  className={`flex gap-4 w-full flex-shrink-0 ${
+                    slideIndex !== currentSlide ? "opacity-0" : ""
+                  }`}
                 >
                   {reviews
                     .slice(slideIndex, (slideIndex + 1) * slidesPerView)

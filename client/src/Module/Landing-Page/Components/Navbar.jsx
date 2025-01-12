@@ -4,8 +4,8 @@ import Button from "../../../Components/Button";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Courses", href: "#Courses" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Learning", href: "#Learning" },
+  // { name: "Pricing", href: "#pricing" },
   { name: "About", href: "#about" },
 ];
 
@@ -72,11 +72,6 @@ export function Navbar() {
               {item.name}
             </a>
           ))}
-          <div className="px-3 py-2">
-            <Button className="w-full bg-red-600 hover:bg-red-700">
-              Get Started
-            </Button>
-          </div>
         </div>
       </div>
     </nav>

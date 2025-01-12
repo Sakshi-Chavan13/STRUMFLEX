@@ -3,6 +3,8 @@ import BackgroundImage from "../../../assets/BackgroundMain.jpg";
 import Button from "../../../Components/Button";
 import GlobalModal from "../../../Components/GlobalModal";
 import RegisterForm from "./RegisterForm";
+import Drawer from "../../../Components/Drawer";
+import { motion } from "motion/react";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,23 +29,33 @@ const Home = () => {
         <img
           src={BackgroundImage}
           alt="Guitar fretboard in black and white"
-          className="object-cover w-full h-full opacity-50"
+          className="object-cover w-full h-full opacity-80"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent/30" />
       </div>
-      <div className="relative max-w-6xl mx-auto px-4 h-full flex items-center">
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
+      <div className="relative max-w-6xl mx-auto px-4 h-full flex items-end md:items-center">
+        <div className="space-y-6 max-md:mb-16">
+          <motion.h1
+            animate={{ transform: "translateY(0)" }}
+            initial={{ transform: "translateY(100px)" }}
+            transition={{ duration: 1, delay: 1 }}
+            className="text-6xl lg:text-7xl font-bold tracking-tight text-white"
+          >
             Strumflex
-            <span className="block text-2xl md:text-3xl lg:text-4xl mt-2 text-gray-300">
+            <span className="block text-3xl lg:text-4xl mt-2 text-gray-300">
               Master the Art of Guitar
             </span>
-          </h1>
-          <p className="max-w-xl text-lg md:text-xl text-gray-300">
+          </motion.h1>
+          <motion.p
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="max-w-xl text-lg md:text-xl text-gray-300"
+          >
             From beginner to advanced, learn guitar at your own pace with
             professional instructors and a structured curriculum designed for
             your success.
-          </p>
+          </motion.p>
           <div className="flex gap-4">
             <Button size="lg" onClick={() => setIsModalOpen(true)}>
               Register Now
@@ -59,6 +71,10 @@ const Home = () => {
       <GlobalModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <RegisterForm />
       </GlobalModal>
+
+      <Drawer isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <RegisterForm />
+      </Drawer>
     </section>
   );
 };

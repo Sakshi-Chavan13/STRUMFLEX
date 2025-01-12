@@ -25,14 +25,14 @@ const About = () => {
               <img
                 src={Guitar1}
                 alt="Student practicing guitar with laptop"
-                className="rounded-lg object-cover h-[28rem] z-10 relative"
+                className="rounded-lg object-cover h-[28rem] z-10 relative animate-slideDown"
               />
             </div>
             <div className="relative aspect-auto w-[120%] ml-[60%] md:ml-[45%] mt-[10%]">
               <img
                 src={Guitar2}
                 alt="Student practicing guitar with laptop"
-                className="rounded-lg object-cover h-[13rem] w-[25rem] z-20 relative"
+                className="rounded-lg object-cover h-[13rem] w-[25rem] z-20 relative animate-slideLeft"
               />
             </div>
           </div>

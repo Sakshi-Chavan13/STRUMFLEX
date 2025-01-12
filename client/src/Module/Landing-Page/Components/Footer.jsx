@@ -4,15 +4,15 @@ const Footer = () => {
   return (
     <footer id="footer" className="py-12 bg-zinc-900">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 text-white">
-          <div>
+        <div className="grid md:grid-cols-3 gap-8 text-white">
+          <div className="col-span-2">
             <h3 className="text-xl font-bold mb-4">Strumflex</h3>
             <p className="text-gray-400">
               Master the art of guitar with professional instruction and
               structured learning.
             </p>
           </div>
-          <div>
+          {/* <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
@@ -73,8 +73,10 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
-          <div>
+          </div> */}
+          {/* <div></div>
+          <div></div> */}
+          <div className="md:flex flex-col content-end">
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
               <li>Email: hello@strumflex.com</li>

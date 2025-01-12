@@ -6,15 +6,15 @@ import { useDemoForm } from "../service";
 
 const schema = yup
   .object({
-    lessonFor: yup
+    lesson_for: yup
       .string()
       .oneOf(["myself", "child", "other"], "Please select an option")
       .required("Please select an option"),
-    contactNumber: yup
+    mobile: yup
       .string()
       .matches(/^\d{10}$/, "Must be exactly 10 digits")
       .required("Contact number is required"),
-    emailId: yup
+    email: yup
       .string()
       .email("Invalid email format")
       .required("Email is required"),
@@ -39,8 +39,8 @@ export default function GuitarLessonForm({ isModal }) {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      lessonFor: "myself",
-      terms: true,
+      lesson_for: "myself",
+      want_pdf: true,
     },
   });
 
@@ -103,8 +103,8 @@ export default function GuitarLessonForm({ isModal }) {
   return (
     <div
       className={`${
-          isModal && "max-w-lg h-[617px]"
-        } mx-auto p-6 bg-white rounded-lg shadow-md shadow-red-300`}
+          isModal && "max-w-lg"
+        } mx-auto p-6 bg-white rounded-lg shadow-md max-md:shadow-red-300`}
     >
       <div className="text-center mb-8">
         {/* <div className="mx-auto bg-red-100 w-16 h-16 flex items-center justify-center rounded-full mb-2">
@@ -140,18 +140,18 @@ export default function GuitarLessonForm({ isModal }) {
               <label
                 key={option}
                 className={`flex items-center justify-center p-2 border rounded-lg cursor-pointer transition duration-300 hover:bg-gray-50 ${
-                  watch("lessonFor") === option ? "border-red-600" : ""
+                  watch("lesson_for") === option ? "border-red-600" : ""
                 }`}
               >
                 <input
                   type="radio"
                   value={option}
-                  {...register("lessonFor")}
+                  {...register("lesson_for")}
                   className="sr-only"
                 />
                 <span
                   className={`capitalize ${
-                    errors.lessonFor ? "text-red-500" : ""
+                    errors.lesson_for ? "text-red-500" : ""
                   }`}
                 >
                   {option}
@@ -159,9 +159,9 @@ export default function GuitarLessonForm({ isModal }) {
               </label>
             ))}
           </div>
-          {errors.lessonFor && (
+          {errors.lesson_for && (
             <p className="mt-1 text-xs text-red-500">
-              {errors.lessonFor.message}
+              {errors.lesson_for.message}
             </p>
           )}
         </div>
@@ -169,46 +169,46 @@ export default function GuitarLessonForm({ isModal }) {
         <div className="grid grid-cols-2 max-md:grid-cols-1 gap-4">
           <div>
             <label
-              htmlFor="contactNumber"
+              htmlFor="mobile"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
               Contact Number
             </label>
             <input
               type="tel"
-              id="contactNumber"
-              {...register("contactNumber")}
+              id="mobile"
+              {...register("mobile")}
               className={`w-full px-3 py-2 border rounded-md ${
-                errors.contactNumber ? "border-red-500" : "border-gray-300"
+                errors.mobile ? "border-red-500" : "border-gray-300"
               }`}
               placeholder="Enter your contact number"
             />
-            {errors.contactNumber && (
+            {errors.mobile && (
               <p className="mt-1 text-xs text-red-500">
-                {errors.contactNumber.message}
+                {errors.mobile.message}
               </p>
             )}
           </div>
 
           <div>
             <label
-              htmlFor="emailId"
+              htmlFor="email"
               className="block text-sm font-medium text-gray-700 mb-2"
             >
               Email ID
             </label>
             <input
               type="email"
-              id="emailId"
-              {...register("emailId")}
+              id="email"
+              {...register("email")}
               className={`w-full px-3 py-2 border rounded-md ${
-                errors.emailId ? "border-red-500" : "border-gray-300"
+                errors.email ? "border-red-500" : "border-gray-300"
               }`}
               placeholder="Enter your email address"
             />
-            {errors.emailId && (
+            {errors.email && (
               <p className="mt-1 text-xs text-red-500">
-                {errors.emailId.message}
+                {errors.email.message}
               </p>
             )}
           </div>
@@ -238,26 +238,26 @@ export default function GuitarLessonForm({ isModal }) {
         <div className="flex items-center !mt-2">
           <button
             type="button"
-            onClick={() => setValue("terms", !watch("terms"))}
+            onClick={() => setValue("want_pdf", !watch("want_pdf"))}
             className={`${
-              watch("terms") ? "bg-red-600" : "bg-gray-300"
+              watch("want_pdf") ? "bg-red-600" : "bg-gray-300"
             } relative inline-flex items-center h-4 w-6 rounded-full focus:outline-none`}
           >
             <span
               className={`${
-                watch("terms") ? "translate-x-3" : "translate-x-1"
+                watch("want_pdf") ? "translate-x-3" : "translate-x-1"
               } inline-block w-2 h-2 transform bg-white rounded-full transition-transform`}
             />
           </button>
           <label
-            htmlFor="terms"
+            htmlFor="want_pdf"
             className="ml-2 text-xs font-medium text-gray-700"
           >
             Share pdf on your WhatsApp
           </label>
         </div>
-        {errors.terms && (
-          <p className="mt-1 text-xs text-red-500">{errors.terms.message}</p>
+        {errors.want_pdf && (
+          <p className="mt-1 text-xs text-red-500">{errors.want_pdf.message}</p>
         )}
 
         <button

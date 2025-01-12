@@ -6,7 +6,7 @@ const FormMain = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-white shadow-xl rounded-2xl overflow-hidden">
+        <div className="bg-white rounded-2xl overflow-hidden">
           <div className="grid md:grid-cols-2 gap-0">
             {/* Image Section */}
             <div className="relative h-64 md:h-full">

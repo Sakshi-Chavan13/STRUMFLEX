@@ -8,6 +8,7 @@ import FormMain from "./Components/FormMain";
 import GuitarLessonForm from "./Components/Form";
 import GlobalModal from "../../Components/GlobalModal";
 import LearningPoints from "./Components/LearningPoints";
+import Drawer from "../../Components/Drawer";
 
 const LandingIndex = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,13 +25,16 @@ const LandingIndex = () => {
       <Navbar />
       <Home />
       <About />
-      <LearningPoints />
+      {/* <LearningPoints /> */}
       <Prize />
       <FormMain />
       <Footer />
       <GlobalModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <GuitarLessonForm isModal />
       </GlobalModal>
+      <Drawer isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <GuitarLessonForm />
+      </Drawer>
     </>
   );
 };
