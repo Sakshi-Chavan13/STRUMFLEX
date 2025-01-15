@@ -4,7 +4,7 @@ import FormImage from "../../../assets/FormImage.jpg";
 
 const FormMain = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gradient-to-b from-slate-50 to-slate-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="bg-white rounded-2xl overflow-hidden">
           <div className="grid md:grid-cols-2 gap-0">
@@ -14,7 +14,7 @@ const FormMain = () => {
               <img
                 src={FormImage}
                 alt="Online guitar lesson"
-                className="object-cover h-[90vh] max-md:h-full w-full"
+                className="object-cover max-md:h-full w-full"
                 width={1200}
                 height={800}
                 priority

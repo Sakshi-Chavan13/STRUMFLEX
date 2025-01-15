@@ -1,7 +1,7 @@
 import React from "react";
-import { IoPlayCircle } from "react-icons/io5";
 import Guitar1 from "../../../assets/Guitar.jpg";
 import Guitar2 from "../../../assets/Guitar2.jpg";
+import { motion } from "motion/react";
 
 const About = () => {
   return (
@@ -22,25 +22,30 @@ const About = () => {
         <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative hidden lg:block">
             <div className="relative aspect-auto w-full mb-[-20%] z-10 ml-[30%]">
-              <img
+              <motion.img
+                animate={{ transform: "translateY(0)" }}
+                initial={{ transform: "translateY(100px)", hidden: true }}
+                transition={{ duration: 0.5, delay: 2 }}
+                whileInView="visible"
+                viewport={{ once: true }}
                 src={Guitar1}
                 alt="Student practicing guitar with laptop"
-                className="rounded-lg object-cover h-[28rem] z-10 relative animate-slideDown"
+                className="rounded-lg object-cover h-[28rem] z-10 relative"
               />
             </div>
             <div className="relative aspect-auto w-[120%] ml-[60%] md:ml-[45%] mt-[10%]">
-              <img
+              <motion.img
+                animate={{ transform: "translateX(0)" }}
+                initial={{ transform: "translateX(100px)" }}
                 src={Guitar2}
                 alt="Student practicing guitar with laptop"
-                className="rounded-lg object-cover h-[13rem] w-[25rem] z-20 relative animate-slideLeft"
+                className="rounded-lg object-cover h-[13rem] w-[25rem] z-20 relative"
               />
             </div>
           </div>
 
           <div className="flex flex-col justify-center space-y-8 pt-8 relative 2xl:right-48 xl:right-0">
-            <h2 className="text-base font-semibold tracking-[0.25em] text-muted-foreground">
-              A B O U T U S
-            </h2>
+            <h2 className="text-3xl font-bold tracking-tight">About Us</h2>
             <div className="space-y-6">
               <p className="text-lg leading-relaxed text-muted-foreground">
                 At Strumflex, we're here to make learning the guitar simple,

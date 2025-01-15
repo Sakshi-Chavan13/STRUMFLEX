@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
-import Button from "../../../Components/Button";
+import StrumflexLogo from "../../../assets/StrumflexLogo.png";
+import { motion } from "motion/react";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -31,7 +32,7 @@ export function Navbar() {
       <div className="max-w-[90vw] mx-auto px-4">
         <div className="flex justify-between items-center py-2">
           <a href="/" className="text-2xl font-bold">
-            Strumflex
+            <img src={StrumflexLogo} className="h-12" alt="Strumflex Logo" />
           </a>
           <div className="hidden md:flex space-x-4">
             {navItems.map((item) => (
@@ -59,9 +60,21 @@ export function Navbar() {
       </div>
       {/* Mobile menu */}
       <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/90 backdrop-blur-sm">
-          {navItems.map((item) => (
-            <a
+        <motion.div
+          layout
+          transition={{ duration: 0.3 }}
+          initial={{ transform: "translateY(100%)" }}
+          animate={{ transform: "translateY(0%)" }}
+          className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/90 backdrop-blur-sm"
+        >
+          {navItems.map((item, index) => (
+            <motion.a
+              layout
+              transition={{ duration: 0.3, delay: (index + 1) * 0.4 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ transform: "translateY(100%)" }}
+              animate={{ transform: "translateY(0%)" }}
               key={item.name}
               href={item.href}
               className={`block px-3 py-2 text-white hover:text-red-500 transition-colors ${
@@ -70,9 +83,9 @@ export function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               {item.name}
-            </a>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
       </div>
     </nav>
   );

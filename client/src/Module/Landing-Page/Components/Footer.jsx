@@ -79,9 +79,8 @@ const Footer = () => {
           <div className="md:flex flex-col content-end">
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>Email: hello@strumflex.com</li>
-              <li>Phone: (555) 123-4567</li>
-              <li>Address: 123 Music Street</li>
+              <li>Email: strumflex01@gmail.com</li>
+              <li>Address: Sec 16 Airoli Navi Mumbai 400708</li>
             </ul>
           </div>
         </div>

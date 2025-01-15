@@ -5,6 +5,7 @@ import GlobalModal from "../../../Components/GlobalModal";
 import RegisterForm from "./RegisterForm";
 import Drawer from "../../../Components/Drawer";
 import { motion } from "motion/react";
+import { IoChevronForwardCircle } from "react-icons/io5";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,12 +34,12 @@ const Home = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent/30" />
       </div>
-      <div className="relative max-w-6xl mx-auto px-4 h-full flex items-end md:items-center">
-        <div className="space-y-6 max-md:mb-16">
+      <div className="relative max-w-6xl mx-auto px-4 h-full flex items-center max-lg:items-end">
+        <div className="space-y-6 max-lg:mb-16">
           <motion.h1
             animate={{ transform: "translateY(0)" }}
             initial={{ transform: "translateY(100px)" }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
             className="text-6xl lg:text-7xl font-bold tracking-tight text-white"
           >
             Strumflex
@@ -49,7 +50,7 @@ const Home = () => {
           <motion.p
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
             className="max-w-xl text-lg md:text-xl text-gray-300"
           >
             From beginner to advanced, learn guitar at your own pace with
@@ -57,10 +58,18 @@ const Home = () => {
             your success.
           </motion.p>
           <div className="flex gap-4">
-            <Button size="lg" onClick={() => setIsModalOpen(true)}>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              animate={{ transform: "translateX(0)" }}
+              initial={{ transform: "translateX(-100px)" }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full transition-colors flex items-center justify-center gap-2"
+              size="lg"
+              onClick={() => setIsModalOpen(true)}
+            >
               Register Now
-              <i class="fa fa-chevron-right" aria-hidden="true"></i>
-            </Button>
+              <IoChevronForwardCircle className="text-2xl" />
+            </motion.button>
             {/* <Button size="lg" variant="outline" isTransaprent>
               View Courses
             </Button> */}

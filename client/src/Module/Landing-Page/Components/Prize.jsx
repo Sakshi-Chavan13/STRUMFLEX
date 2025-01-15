@@ -83,7 +83,7 @@ const Prize = () => {
                 }`}
               >
                 {option.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-red-500 text-white text-sm rounded-full">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-red-500 text-white text-sm rounded-full text-center">
                     Most Popular
                   </div>
                 )}
