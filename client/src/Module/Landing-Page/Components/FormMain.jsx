@@ -14,7 +14,7 @@ const FormMain = () => {
               <img
                 src={FormImage}
                 alt="Online guitar lesson"
-                className="object-cover max-md:h-full w-full"
+                className="object-cover max-md:h-full w-full md:h-[34rem]"
                 width={1200}
                 height={800}
                 priority

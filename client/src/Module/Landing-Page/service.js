@@ -5,6 +5,17 @@ export const useDemoForm = () => {
   const { mutate } = useMutation({
     mutationFn: (data) => {
       
+      return httpClient("POST", "demo", data);
+    },
+  });
+
+  return { mutate };
+};
+
+export const useRegistrationForm = () => {
+  const { mutate } = useMutation({
+    mutationFn: (data) => {
+      
       return httpClient("POST", "users", data);
     },
   });

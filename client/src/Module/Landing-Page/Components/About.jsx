@@ -18,16 +18,30 @@ const About = () => {
         />
       </div> */}
 
-      <div className="container mx-auto px-4 py-16 relative">
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ amount: 0.8 }}
+        className="container mx-auto px-4 py-16 relative"
+      >
         <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative hidden lg:block">
             <div className="relative aspect-auto w-full mb-[-20%] z-10 ml-[30%]">
               <motion.img
-                animate={{ transform: "translateY(0)" }}
-                initial={{ transform: "translateY(100px)", hidden: true }}
-                transition={{ duration: 0.5, delay: 2 }}
-                whileInView="visible"
-                viewport={{ once: true }}
+                variants={{
+                  offscreen: {
+                    y: 300,
+                  },
+                  onscreen: {
+                    y: 50,
+                    // rotate: -10,
+                    transition: {
+                      type: "spring",
+                      bounce: 0.4,
+                      duration: 0.8,
+                    },
+                  },
+                }}
                 src={Guitar1}
                 alt="Student practicing guitar with laptop"
                 className="rounded-lg object-cover h-[28rem] z-10 relative"
@@ -35,8 +49,20 @@ const About = () => {
             </div>
             <div className="relative aspect-auto w-[120%] ml-[60%] md:ml-[45%] mt-[10%]">
               <motion.img
-                animate={{ transform: "translateX(0)" }}
-                initial={{ transform: "translateX(100px)" }}
+                variants={{
+                  offscreen: {
+                    x: 150,
+                  },
+                  onscreen: {
+                    x: 0,
+                    // rotate: -10,
+                    transition: {
+                      type: "spring",
+                      bounce: 0.4,
+                      duration: 0.8,
+                    },
+                  },
+                }}
                 src={Guitar2}
                 alt="Student practicing guitar with laptop"
                 className="rounded-lg object-cover h-[13rem] w-[25rem] z-20 relative"
@@ -69,7 +95,7 @@ const About = () => {
             </div> */}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -4,6 +4,7 @@ import Button from "../../../Components/Button";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import useRecaptchaV3 from "../../../Hook/useRecaptchaV3";
+import { useRegistrationForm } from "../service";
 
 const RegisterForm = () => {
   const {
@@ -16,9 +17,11 @@ const RegisterForm = () => {
 
   const executeRecaptcha = useRecaptchaV3();
 
+  const { mutate } = useRegistrationForm();
+
   const onSubmit = (data) => {
     executeRecaptcha();
-    
+    mutate(data);
     setIsSubmitting(true);
   };
 
@@ -39,7 +42,7 @@ const RegisterForm = () => {
         {/* Form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="px-6 py-8 space-y-8 max-md:h-[40rem] overflow-y-scroll"
+          className="px-6 py-8 space-y-8 max-md:h-[calc(100vh-400px)] overflow-y-scroll"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Personal Information */}

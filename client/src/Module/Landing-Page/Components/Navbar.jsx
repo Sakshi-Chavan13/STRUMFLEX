@@ -35,8 +35,14 @@ export function Navbar() {
             <img src={StrumflexLogo} className="h-12" alt="Strumflex Logo" />
           </a>
           <div className="hidden md:flex space-x-4">
-            {navItems.map((item) => (
-              <a
+            {navItems.map((item, index) => (
+              <motion.a
+                layout
+                transition={{ duration: 0.3, delay: (index + 1) * 0.4 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ transform: "translateY(100%)" }}
+                animate={{ transform: "translateY(0%)" }}
                 key={item.name}
                 href={item.href}
                 className={`hover:text-red-500 transition-colors font-semibold ${
@@ -44,7 +50,7 @@ export function Navbar() {
                 }`}
               >
                 {item.name}
-              </a>
+              </motion.a>
             ))}
           </div>
           <div className="hidden md:block">
