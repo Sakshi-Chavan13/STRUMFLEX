@@ -31,9 +31,11 @@ const About = () => {
                 variants={{
                   offscreen: {
                     y: 300,
+                    opacity: 0,
                   },
                   onscreen: {
                     y: 50,
+                    opacity: 1,
                     // rotate: -10,
                     transition: {
                       type: "spring",
@@ -52,9 +54,11 @@ const About = () => {
                 variants={{
                   offscreen: {
                     x: 150,
+                    opacity: 0,
                   },
                   onscreen: {
                     x: 0,
+                    opacity: 1,
                     // rotate: -10,
                     transition: {
                       type: "spring",
@@ -70,7 +74,13 @@ const About = () => {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center space-y-8 pt-8 relative 2xl:right-48 xl:right-0">
+          <motion.div
+            variants={{
+              offscreen: { transform: "translateX(100px)" },
+              onscreen: { transform: "translateX(0)" },
+            }}
+            className="flex flex-col justify-center space-y-8 pt-8 relative 2xl:right-48 xl:right-0"
+          >
             <h2 className="text-3xl font-bold tracking-tight">About Us</h2>
             <div className="space-y-6">
               <p className="text-lg leading-relaxed text-muted-foreground">
@@ -93,7 +103,7 @@ const About = () => {
               <IoPlayCircle className="h-10 w-10" size={50} />
               Learn More
             </div> */}
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

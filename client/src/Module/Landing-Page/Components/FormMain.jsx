@@ -1,11 +1,20 @@
 import React from "react";
 import GuitarLessonForm from "./Form";
 import FormImage from "../../../assets/FormImage.jpg";
+import { motion } from "motion/react";
 
 const FormMain = () => {
   return (
-    <div className="bg-gradient-to-b from-slate-50 to-slate-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <motion.div
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ amount: 0.8, once: true }}
+      className="bg-gradient-to-b from-slate-50 to-slate-100 py-12 px-4 sm:px-6 lg:px-8"
+    >
+      <motion.div
+        variants={{ offscreen: { opacity: 0 }, onscreen: { opacity: 1 } }}
+        className="max-w-7xl mx-auto"
+      >
         <div className="bg-white rounded-2xl overflow-hidden">
           <div className="grid md:grid-cols-2 gap-0">
             {/* Image Section */}
@@ -33,8 +42,8 @@ const FormMain = () => {
             <GuitarLessonForm />
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

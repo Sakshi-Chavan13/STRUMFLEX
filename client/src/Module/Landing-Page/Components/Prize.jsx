@@ -5,6 +5,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import RegisterForm from "./RegisterForm";
 import GlobalModal from "../../../Components/GlobalModal";
 import Drawer from "../../../Components/Drawer";
+import { motion } from "motion/react";
 
 const Prize = () => {
   const classOptions = [
@@ -58,7 +59,12 @@ const Prize = () => {
 
   return (
     <section className="w-full relative overflow-hidden">
-      <div className="container px-4 py-12 mx-auto">
+      <motion.div
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ amount: 0.8 }}
+        className="container px-4 py-12 mx-auto"
+      >
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold tracking-tight mb-4">
             Choose Your Learning Path
@@ -72,7 +78,19 @@ const Prize = () => {
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {classOptions.map((option, index) => (
-            <div
+            <motion.div
+              variants={{
+                offscreen: {
+                  transform: "translateX(-100px)",
+                  opacity: 0,
+                  transition: { delay: index * 0.4 },
+                },
+                onscreen: {
+                  transform: "translateX(0)",
+                  opacity: 1,
+                  transition: { delay: index * 0.4 },
+                },
+              }}
               key={option.title}
               className="animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}
@@ -126,7 +144,7 @@ const Prize = () => {
                   Book {option.title}
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -153,7 +171,7 @@ const Prize = () => {
             setIsDialogOpen={setIsDialogOpen}
           />
         </Drawer>
-      </div>
+      </motion.div>
     </section>
   );
 };
