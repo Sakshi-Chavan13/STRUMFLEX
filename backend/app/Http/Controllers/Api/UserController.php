@@ -29,7 +29,6 @@ class UserController extends Controller
             "name" => ["nullable", "string"],
             "lesson_for" => ["nullable", "string", "in:myself,child,other"],
             "mobile" => ["nullable", "string"],
-            "email" => ["nullable", "email"],
             "goals" => ["nullable", "string"],
             "want_pdf" => ["nullable", "boolean"],
             "status" => ["nullable", "string"],
