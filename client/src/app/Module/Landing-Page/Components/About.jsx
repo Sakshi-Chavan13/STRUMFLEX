@@ -1,6 +1,4 @@
 import React from "react";
-import Guitar1 from "../../../assets/Guitar.jpg";
-import Guitar2 from "../../../assets/Guitar2.jpg";
 import { motion } from "motion/react";
 
 const About = () => {
@@ -44,7 +42,7 @@ const About = () => {
                     },
                   },
                 }}
-                src={Guitar1}
+                src={"/Guitar.jpg"}
                 alt="Student practicing guitar with laptop"
                 className="rounded-lg object-cover h-[28rem] z-10 relative"
               />
@@ -67,7 +65,7 @@ const About = () => {
                     },
                   },
                 }}
-                src={Guitar2}
+                src={"/Guitar2.jpg"}
                 alt="Student practicing guitar with laptop"
                 className="rounded-lg object-cover h-[13rem] w-[25rem] z-20 relative"
               />

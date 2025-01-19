@@ -1,9 +1,9 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import BackgroundImage from "../../../assets/BackgroundMain.jpg";
-import Button from "../../../Components/Button";
-import GlobalModal from "../../../Components/GlobalModal";
+import GlobalModal from "@/app/Components/GlobalModal";
 import RegisterForm from "./RegisterForm";
-import Drawer from "../../../Components/Drawer";
+import Drawer from "@/app/Components/Drawer";
 import { motion } from "motion/react";
 import { IoChevronForwardCircle } from "react-icons/io5";
 
@@ -28,7 +28,7 @@ const Home = () => {
     <section id="home" className="relative h-screen">
       <div className="absolute inset-0">
         <img
-          src={BackgroundImage}
+          src={"/BackgroundMain.jpg"}
           alt="Guitar fretboard in black and white"
           className="object-cover w-full h-full opacity-80"
         />

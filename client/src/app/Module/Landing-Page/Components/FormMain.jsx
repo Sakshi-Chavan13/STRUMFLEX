@@ -1,6 +1,5 @@
 import React from "react";
 import GuitarLessonForm from "./Form";
-import FormImage from "../../../assets/FormImage.jpg";
 import { motion } from "motion/react";
 
 const FormMain = () => {
@@ -21,12 +20,11 @@ const FormMain = () => {
             <div className="relative h-64 md:h-full">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 mix-blend-multiply z-10" />
               <img
-                src={FormImage}
+                src={"/FormImage.jpg"}
                 alt="Online guitar lesson"
                 className="object-cover max-md:h-full w-full md:h-[34rem]"
                 width={1200}
                 height={800}
-                priority
               />
               {/* Overlay Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 z-20 bg-gradient-to-t from-black/60 to-transparent text-white">

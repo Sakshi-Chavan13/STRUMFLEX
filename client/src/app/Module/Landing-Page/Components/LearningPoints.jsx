@@ -1,6 +1,6 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
-import { AiOutlineMessage } from "react-icons/ai";
-import { FaCaretLeft, FaCaretRight } from "react-icons/fa6";
 
 const reviews = [
   {

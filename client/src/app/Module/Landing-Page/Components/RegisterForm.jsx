@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Button from "../../../Components/Button";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import useRecaptchaV3 from "../../../Hook/useRecaptchaV3";
+import Button from "@/app/Components/Button";
+import useRecaptchaV3 from "@/app/Hook/useRecaptchaV3";
 import { useRegistrationForm } from "../service";
 
 const RegisterForm = () => {
@@ -308,10 +306,7 @@ const RegisterForm = () => {
 
           {/* Submit Button */}
           <div className="pt-4">
-            <Button
-              type="submit"
-              disabled={isSubmitting}
-            >
+            <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Submitting..." : "Submit Registration"}
             </Button>
           </div>

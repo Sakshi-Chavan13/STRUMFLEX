@@ -1,6 +1,7 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
-import StrumflexLogo from "../../../assets/StrumflexLogo.png";
 import { motion } from "motion/react";
 
 const navItems = [
@@ -32,7 +33,11 @@ export function Navbar() {
       <div className="max-w-[90vw] mx-auto px-4">
         <div className="flex justify-between items-center py-2">
           <a href="/" className="text-2xl font-bold">
-            <img src={StrumflexLogo} className="h-12" alt="Strumflex Logo" />
+            <img
+              src={"/StrumflexLogo.png"}
+              className="h-12"
+              alt="Strumflex Logo"
+            />
           </a>
           <div className="hidden md:flex space-x-4">
             {navItems.map((item, index) => (

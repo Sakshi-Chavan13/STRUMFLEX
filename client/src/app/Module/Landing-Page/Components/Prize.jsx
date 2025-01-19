@@ -3,8 +3,8 @@ import { LuMonitor } from "react-icons/lu";
 import { LuSchool } from "react-icons/lu";
 import { AiOutlineHome } from "react-icons/ai";
 import RegisterForm from "./RegisterForm";
-import GlobalModal from "../../../Components/GlobalModal";
-import Drawer from "../../../Components/Drawer";
+import GlobalModal from "@/app/Components/GlobalModal";
+import Drawer from "@/app/Components/Drawer";
 import { motion } from "motion/react";
 
 const Prize = () => {
