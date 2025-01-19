@@ -23,6 +23,15 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-KY3ME7B63F"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-KY3ME7B63F');
+        </script>
       </body>
     </html>
   );

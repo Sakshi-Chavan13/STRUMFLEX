@@ -18,8 +18,8 @@ axiosRequest.interceptors.request.use(
 );
 
 export const httpClient = async (type, urls, payload) => {
-  const url = import.meta.env.VITE_BASE_URL + urls;
-  
+  const url = process.env.NEXT_PUBLIC_BASE_URL + urls;
+
   const { data } = await axiosRequest({
     method: type,
     url,

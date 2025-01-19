@@ -4,26 +4,24 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDemoForm } from "../service";
 
-const schema = yup
-  .object({
-    lesson_for: yup
-      .string()
-      .oneOf(["myself", "child", "other"], "Please select an option")
-      .required("Please select an option"),
-    mobile: yup
-      .string()
-      .matches(/^\d{10}$/, "Must be exactly 10 digits")
-      .required("Contact number is required"),
-    email: yup
-      .string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    goals: yup
-      .string()
-      .min(10, "Please provide at least 10 characters")
-      .required("Goals are required"),
-  })
-  .required();
+const schema = yup.object({
+  lesson_for: yup
+    .string()
+    .oneOf(["myself", "child", "other"], "Please select an option")
+    .required("Please select an option"),
+  mobile: yup
+    .string()
+    .matches(/^\d{10}$/, "Must be exactly 10 digits")
+    .required("Contact number is required"),
+  email: yup
+    .string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  goals: yup
+    .string()
+    .min(10, "Please provide at least 10 characters")
+    .required("Goals are required"),
+});
 
 export default function GuitarLessonForm({ isModal }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,13 +47,15 @@ export default function GuitarLessonForm({ isModal }) {
 
   const { mutate } = useDemoForm();
 
+  console.log(errors);
+
   const onSubmit = (data) => {
-    // setIsSubmitting(true);
+    setIsSubmitting(true);
     // Simulate API call
 
     !watch("hidden")?.length && mutate(data);
-    // setIsSubmitting(false);
-    // setIsSuccess(true);
+    setIsSubmitting(false);
+    setIsSuccess(true);
   };
 
   if (isSuccess) {
@@ -166,6 +166,8 @@ export default function GuitarLessonForm({ isModal }) {
             </p>
           )}
         </div>
+
+        <input type="hidden" {...register("hidden")} />
 
         <div className="grid grid-cols-2 max-md:grid-cols-1 gap-4">
           <div>
