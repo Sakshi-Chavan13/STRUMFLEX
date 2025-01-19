@@ -41,6 +41,7 @@ export default function GuitarLessonForm({ isModal }) {
     defaultValues: {
       lesson_for: "myself",
       want_pdf: true,
+      hidden: "",
     },
   });
 
@@ -52,7 +53,7 @@ export default function GuitarLessonForm({ isModal }) {
     // setIsSubmitting(true);
     // Simulate API call
 
-    mutate(data);
+    !watch("hidden")?.length && mutate(data);
     // setIsSubmitting(false);
     // setIsSuccess(true);
   };
@@ -103,8 +104,8 @@ export default function GuitarLessonForm({ isModal }) {
   return (
     <div
       className={`${
-          isModal && "max-w-lg"
-        } mx-auto p-6 bg-white rounded-lg shadow-md max-md:shadow-red-300`}
+        isModal && "max-w-lg"
+      } mx-auto p-6 bg-white rounded-lg shadow-md max-md:shadow-red-300`}
     >
       <div className="text-center mb-8">
         {/* <div className="mx-auto bg-red-100 w-16 h-16 flex items-center justify-center rounded-full mb-2">

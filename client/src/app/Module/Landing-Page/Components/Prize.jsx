@@ -62,7 +62,7 @@ const Prize = () => {
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ amount: 0.8 }}
+        viewport={{ amount: 0.8, once: true }}
         className="container px-4 py-12 mx-auto"
       >
         <div className="text-center mb-10">

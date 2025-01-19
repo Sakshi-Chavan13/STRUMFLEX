@@ -19,7 +19,7 @@ const About = () => {
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ amount: 0.8 }}
+        viewport={{ amount: 0.8, once: true }}
         className="container mx-auto px-4 py-16 relative"
       >
         <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">

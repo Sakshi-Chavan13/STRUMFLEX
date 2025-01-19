@@ -5,7 +5,7 @@ export const useDemoForm = () => {
   const { mutate } = useMutation({
     mutationFn: (data) => {
       
-      return httpClient("POST", "demo", data);
+      return httpClient("POST", "demos", data);
     },
   });
 
