@@ -79,18 +79,18 @@ const Prize = () => {
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {classOptions.map((option, index) => (
             <motion.div
-              variants={{
-                offscreen: {
-                  transform: "translateX(-100px)",
-                  opacity: 0,
-                  transition: { delay: index * 0.4 },
-                },
-                onscreen: {
-                  transform: "translateX(0)",
-                  opacity: 1,
-                  transition: { delay: index * 0.4 },
-                },
-              }}
+              // variants={{
+              //   offscreen: {
+              //     transform: "translateX(-100px)",
+              //     opacity: 0,
+              //     transition: { delay: index * 0.4 },
+              //   },
+              //   onscreen: {
+              //     transform: "translateX(0)",
+              //     opacity: 1,
+              //     transition: { delay: index * 0.4 },
+              //   },
+              // }}
               key={option.title}
               className="animate-fade-in"
               style={{ animationDelay: `${index * 100}ms` }}

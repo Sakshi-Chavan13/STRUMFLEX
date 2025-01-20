@@ -26,22 +26,22 @@ const About = () => {
           <div className="relative hidden lg:block">
             <div className="relative aspect-auto w-full mb-[-20%] z-10 ml-[30%]">
               <motion.img
-                variants={{
-                  offscreen: {
-                    y: 300,
-                    opacity: 0,
-                  },
-                  onscreen: {
-                    y: 50,
-                    opacity: 1,
-                    // rotate: -10,
-                    transition: {
-                      type: "spring",
-                      bounce: 0.4,
-                      duration: 0.8,
-                    },
-                  },
-                }}
+                // variants={{
+                //   offscreen: {
+                //     y: 300,
+                //     opacity: 0,
+                //   },
+                //   onscreen: {
+                //     y: 50,
+                //     opacity: 1,
+                //     // rotate: -10,
+                //     transition: {
+                //       type: "spring",
+                //       bounce: 0.4,
+                //       duration: 0.8,
+                //     },
+                //   },
+                // }}
                 src={"/Guitar.jpg"}
                 alt="Student practicing guitar with laptop"
                 className="rounded-lg object-cover h-[28rem] z-10 relative"
@@ -49,22 +49,22 @@ const About = () => {
             </div>
             <div className="relative aspect-auto w-[120%] ml-[60%] md:ml-[45%] mt-[10%]">
               <motion.img
-                variants={{
-                  offscreen: {
-                    x: 150,
-                    opacity: 0,
-                  },
-                  onscreen: {
-                    x: 0,
-                    opacity: 1,
-                    // rotate: -10,
-                    transition: {
-                      type: "spring",
-                      bounce: 0.4,
-                      duration: 0.8,
-                    },
-                  },
-                }}
+                // variants={{
+                //   offscreen: {
+                //     x: 150,
+                //     opacity: 0,
+                //   },
+                //   onscreen: {
+                //     x: 0,
+                //     opacity: 1,
+                //     // rotate: -10,
+                //     transition: {
+                //       type: "spring",
+                //       bounce: 0.4,
+                //       duration: 0.8,
+                //     },
+                //   },
+                // }}
                 src={"/Guitar2.jpg"}
                 alt="Student practicing guitar with laptop"
                 className="rounded-lg object-cover h-[13rem] w-[25rem] z-20 relative"

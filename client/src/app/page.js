@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import LandingIndex from "./Module/Landing-Page/LandingIndex";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import MetaTags from "./Components/MetaTags";
 
 export default function Home() {
 
@@ -32,6 +33,7 @@ export default function Home() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <MetaTags />
       <LandingIndex />
     </QueryClientProvider>
   );
